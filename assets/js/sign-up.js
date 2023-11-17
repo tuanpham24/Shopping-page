@@ -46,11 +46,17 @@ function handleSignUp(event) {
     password: passwordValue
   }
 
+  let accountListSaved = JSON.parse(localStorage.getItem("account-list")) || [];
+  
+  console.log(accountListSaved);
+
+  accountListSaved.push(userAccount);
+
   // Lưu userAccount vào localstorage
-  localStorage.setItem("user-account", JSON.stringify(userAccount))
+  localStorage.setItem("account-list", JSON.stringify(accountListSaved));
 
-  alert("Đăng ký thành công!")
-
+  alert("Đăng ký thành công!");
+  window.location.assign("http://127.0.0.1:5500/sign-in.html")
 
 }
 
