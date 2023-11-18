@@ -64,7 +64,7 @@
 
             <a href="./cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
 
-            <div class="authen">
+            <div class="authen" id="user-action">
               <a href="./sign-up.html">Đăng ký</a>
               <a href="#">Đăng nhập</a>
             </div>
@@ -105,6 +105,12 @@
 
   </div>
   
-  <script src="./assets/js/home.js"></script>
+  <script>
+    const userAction = document.getElementById("user-action");
+    let accountLogin = JSON.parse(localStorage.getItem("account-login"));
+    if(accountLogin) {
+      userAction.innerHTML = accountLogin
+    }
+  </script>
 </body>
 </html>

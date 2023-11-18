@@ -14,13 +14,26 @@ function handleSignIn(event) {
   let passwordValue = password.value;
   
   let accountListSaved = JSON.parse(localStorage.getItem("account-list")) || [];
+  console.log(accountListSaved);
   for (let i = 0; i < accountListSaved.length; i++) {
     if (emailValue == accountListSaved[i].email && passwordValue == accountListSaved[i].password) {
       alert("Dang nhap thanh cong");
-      window.location.assign("http://127.0.0.1:5500/index.html")
+
+      let userFound = accountListSaved.find((account) => {
+        return account.email = emailValue
+      });
+      
+      // userAction.innerHTML = userFound.fullName
+      localStorage.setItem("account-login", JSON.stringify(userFound.fullName))
+      
+      window.location.assign("http://127.0.0.1:5500/index.html"); // Chuyển trang
+
+
       return 0; 
     }
   }
+
+
   alert("Dang nhap that bai");
 
 }

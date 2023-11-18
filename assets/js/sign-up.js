@@ -56,6 +56,8 @@ function handleSignUp(event) {
   localStorage.setItem("account-list", JSON.stringify(accountListSaved));
 
   alert("Đăng ký thành công!");
+
+  // Chuyển sang trang đăng nhập
   window.location.assign("http://127.0.0.1:5500/sign-in.html")
 
 }
